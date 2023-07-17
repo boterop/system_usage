@@ -14,6 +14,26 @@ Before running the project we need to install the requirements, in console write
 
 `python3 main.py`
 
+## To create systemctl service
+
+Go to `/etc/systemd/system` and create a file `system-usage.service` and write:
+```
+[Unit]
+Description="System Usage API"
+After=network.target
+
+[Service]
+User=server
+WorkingDirectory=/home/server/Scripts/system_usage/
+ExecStart=/home/server/.asdf/shims/python3.10 main.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+
+and then `sudo systemctl enable system-usage`
+
 ## Endpoints
 
 - <b>GET</b> _/system-usage_
