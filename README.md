@@ -59,6 +59,12 @@ and then `sudo systemctl enable system-usage`
       "percent": 0.0,
       "total": 32000438272,
       "used": 0
+    },
+    "DISK": {
+      "available": 121003053056,
+      "percent": 43.4,
+      "total": 225394515968,
+      "used": 92867510272
     }
   }
   ```
