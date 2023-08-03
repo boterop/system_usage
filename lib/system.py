@@ -19,6 +19,12 @@ class System:
                 "available": MEMORY.get_available(),
                 "used": MEMORY.get_used(),
                 "total": MEMORY.get_total()
+            },
+            "DISK": {
+                "percent": DISK.get_percent(),
+                "available": DISK.get_available(),
+                "used": DISK.get_used(),
+                "total": DISK.get_total()
             }
         }
 
@@ -59,3 +65,17 @@ class MEMORY:
 
     def get_total():
         return psutil.virtual_memory().total
+
+
+class DISK:
+    def get_percent():
+        return psutil.disk_usage('/').percent
+
+    def get_available():
+        return psutil.disk_usage('/').free
+
+    def get_used():
+        return psutil.disk_usage('/').used
+
+    def get_total():
+        return psutil.disk_usage('/').total
