@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.0 (10.08.2023)
+
+- Add CPU temperature
+
 ## 0.2.0 (02.08.2023)
 
 - Add root disk info in response
