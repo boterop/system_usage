@@ -46,7 +46,8 @@ and then `sudo systemctl enable system-usage`
   {
     "CPU": {
       "cores": 12,
-      "percent": 2.3
+      "percent": 2.3,
+      "temperature": 61.9
     },
     "MEMORY": {
       "available": 10426122240,
