@@ -1,3 +1,4 @@
+import os
 import psutil
 
 
@@ -6,7 +7,8 @@ class System:
         data = {
             "CPU": {
                 "cores": CPU.get_count(),
-                "percent": CPU.get_percent()
+                "percent": CPU.get_percent(),
+                "temperature": CPU.get_temperature()
             },
             "SWAP": {
                 "percent": SWAP.get_percent(),
@@ -37,6 +39,15 @@ class CPU:
 
     def get_percent():
         return psutil.cpu_percent(4)
+
+    def get_temperature():
+        sensors = psutil.sensors_temperatures()
+        is_arm = os.uname()[4][:3] == 'arm'
+        if is_arm:
+            temperature = sensors['cpu_thermal'][0].current
+        else:
+            temperature = sensors['coretemp'][0].current
+        return temperature
 
 
 class SWAP:
